@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-      <nav>
+    <nav>
     <a href="index.html" class="logo">
         <img src="./360sociedad.jpg" alt="Sociedades360 logo">
     </a>
@@ -27,7 +27,7 @@
 
     <ul class="nav-links">
         <li><a href="Crear.html">Crear sociedades</a></li>
-        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="./index.html">Inicio</a></li>
         <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
         <li><a href="contacto.html">Contacto</a></li>
     </ul>
@@ -378,13 +378,15 @@ function updateSendLink(){
     }, 150);
   };
 }
+
 const menuToggle = document.getElementById('mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+
 </script>
 </body>
-
 </html>
