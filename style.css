@@ -29,10 +29,14 @@
 
 /* 2. Estilos normales del Navbar (Desktop/PC) */
 nav {
-    display: flex;
-    align-items: center;
-    /* ... todo el código que ya tienes ... */
+    background: rgba(15,20,30,0.18);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid rgba(210,176,106,0.15);
 }
+
+
 
 .nav-links {
     display: flex;
@@ -108,34 +112,33 @@ h4 { font-weight: 400; }
     margin-inline: auto;
 }
 
-/* ---------- NAVBAR CORREGIDO ---------- */
+/* ===== NAVBAR LIMPIO Y ESTABLE ===== */
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 40px; /* Ajustado para que no sea tan alto */
-    background-color: rgba(15, 20, 25, 0.8); /* Mantengo tu transparencia */
+    padding: 0 40px;
+    height: 90px;
+    background-color: rgba(15, 20, 25, 0.88);
     backdrop-filter: blur(12px);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
     position: sticky;
     top: 0;
     z-index: 1000;
-    height: 90px; /* Altura fija para que no se deforme */
+    height: 180px;;
+
 }
 
-/* EL LOGO: Aquí estaba el error del tamaño */
 nav .logo {
     display: flex;
     align-items: center;
-    height: 100%;
+    flex-shrink: 0;
 }
 
 nav .logo img {
-    height: 70px; /* Altura controlada */
-    width: auto;   /* El ancho se ajusta solo para no pixelar */
+    height: 170px;;
+    width: auto;
     object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
 }
 
@@ -143,11 +146,10 @@ nav .logo img:hover {
     transform: scale(1.05);
 }
 
-/* LINKS: Mantengo tus estilos y espaciado */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 28px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -156,86 +158,106 @@ nav .logo img:hover {
 .nav-links a {
     color: var(--color-light);
     font-size: 15px;
-    text-decoration: none;
     transition: color .25s ease, letter-spacing .25s ease;
 }
 
-.nav-links a:hover, .nav-links a.active {
+.nav-links a:hover {
     color: var(--color-gold);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
 }
 
-/* BOTÓN AGENDAR: Mantengo tu diseño dorado */
 .btn-agendar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     min-height: 42px;
-    background: transparent;
-    border: 2px solid var(--color-gold);
-    color: var(--color-gold);
     padding: 8px 20px;
+    border: 2px solid var(--color-gold);
     border-radius: 999px;
-    text-decoration: none;
+    color: var(--color-gold);
+    background: transparent;
     font-size: 14px;
     font-weight: 600;
-    transition: background 0.3s, color 0.3s, transform 0.3s;
     white-space: nowrap;
+    transition: all 0.3s ease;
 }
 
 .btn-agendar:hover {
-    background-color: var(--color-gold);
+    background: var(--color-gold);
     color: #000;
     transform: translateY(-2px);
 }
 
-/* --- MENÚ RESPONSIVE (CELULARES) --- */
-
-/* Primero, ocultamos el botón de hamburguesa en PC */
 .menu-toggle {
     display: none;
     flex-direction: column;
-    cursor: pointer;
+    justify-content: center;
     gap: 5px;
+    cursor: pointer;
 }
 
 .menu-toggle span {
-    width: 30px;
+    width: 28px;
     height: 3px;
-    background-color: var(--color-gold);
+    background: var(--color-gold);
     border-radius: 2px;
 }
 
-@media (max-width: 900px) {
+/* ===== TABLET ===== */
+@media (max-width: 1024px) {
     nav {
-        padding: 0 20px;
+        padding: 0 24px;
     }
 
-    .menu-toggle {
-        display: flex; /* Aparece en móviles */
+    nav .logo img {
+        height: 60px;
+        max-height: 60px;
     }
 
     .nav-links {
-        display: none; /* Se oculta el menú normal */
-        flex-direction: column;
-        position: absolute;
-        top: 90px;
-        left: 0;
-        width: 100%;
-        background-color: rgba(15, 20, 25, 0.95);
-        padding: 20px 0;
         gap: 20px;
-        text-align: center;
-        border-bottom: 1px solid var(--color-gold);
+    }
+}
+
+/* ===== CELULAR ===== */
+@media (max-width: 768px) {
+    nav {
+        height: 78px;
+        padding: 0 16px;
+        position: sticky;
     }
 
-    /* Clase para mostrar el menú cuando tocas el botón (necesita un poquito de JS) */
-    .nav-links.active {
+    nav .logo {
+        display: none;
+    }
+
+    .menu-toggle {
         display: flex;
+        margin-left: auto;
     }
 
     .btn-agendar {
-        display: none; /* Ocultamos el botón de la derecha en móvil para que no choque */
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        padding: 24px 16px;
+        background: rgba(15, 20, 25, 0.97);
+        border-bottom: 1px solid rgba(210, 176, 106, 0.25);
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
     }
 }
 /* ---------- HERO HOME ---------- */
