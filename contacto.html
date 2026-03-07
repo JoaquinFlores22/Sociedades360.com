@@ -14,18 +14,26 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav>
-        <a href="index.html" class="logo">
-            <img src="./360sociedad.jpg" alt="Sociedades360 logo">
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="Crear.html">Crear sociedades</a></li>
-            <li><a href="index.html#servicios">Servicios</a></li>
-            <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
-            <li><a href="contacto.html" class="active">Contacto</a></li>
-        </ul>
-    </nav>
+     <nav>
+    <a href="index.html" class="logo">
+        <img src="./360sociedad.jpg" alt="Sociedades360 logo">
+    </a>
+
+    <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="Crear.html">Crear sociedades</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+
+    <a href="contacto.html" class="btn-agendar">Agendar consulta</a>
+</nav>
     
     <!-- Hero Contacto -->
     <section class="hero-contacto">
@@ -213,8 +221,14 @@ ${consulta}`;
     }, 1200);
 
 }
+const menuToggle = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
 
-</script>
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
 </script>
 </body>
 </html>
+
